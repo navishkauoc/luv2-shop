@@ -720,7 +720,13 @@ table.table.table-bordered th{
     color:#0da8e4
 }
 .detail-section{
-    margin-top:60px
+    margin-top:60px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.detail-img {
+    width: 30%;
 }
 /**/
 
@@ -1034,4 +1040,9 @@ footer ul li{
         border:0;
         padding:8px 0
     }
+}
+
+/* Styles by Navishka */
+a {
+    text-decoration: none;
 }
