@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
 
   // Properties for Pagination
   thePageNumber: number = 1;
-  thePageSize: number = 10;
+  thePageSize: number = 5;
   theTotalElements: number = 0;
 
   constructor(
@@ -34,7 +34,7 @@ export class ProductListComponent implements OnInit {
   listProducts(){
     this.searchMode = this.route.snapshot.paramMap.has('keyword');
 
-    if(this.searchMode) {
+    if (this.searchMode) {
       this.handleSearchProducts();
     } else {
       this.handleListProducts();
@@ -42,14 +42,14 @@ export class ProductListComponent implements OnInit {
   }
 
   handleListProducts() {
-    //Check if "id" parameter is available
+    // Check if "id" parameter is available
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
 
     if(hasCategoryId){
-      //Get the "id" parameter string, convert string to a number using the "+" symbol
+      // Get the "id" parameter string, convert string to a number using the "+" symbol
       this.currentCategoryId = +this.route.snapshot.paramMap.get('id');
     } else {
-      //If not available, set default to category id to 1
+      // If not available, set default to category id to 1
       this.currentCategoryId = 1;
     }
 
@@ -65,7 +65,7 @@ export class ProductListComponent implements OnInit {
 
     console.log(`currentCategoryId = ${this.currentCategoryId}, thePageNumber = ${this.thePageNumber}`);
 
-    //Now get the products for the given category id
+    // Now get the products for the given category id
     this.productService.getProductListPaginate(this.thePageNumber - 1, this.thePageSize, this.currentCategoryId).subscribe(this.processResult());
   }
 
@@ -75,7 +75,7 @@ export class ProductListComponent implements OnInit {
       this.thePageNumber = data.page.number + 1;
       this.thePageSize = data.page.size;
       this.theTotalElements = data.page.totalElements;
-    }
+    };
   }
 
   handleSearchProducts() {
@@ -85,7 +85,13 @@ export class ProductListComponent implements OnInit {
       data => {
         this.products = data;
       }
-    )
+    );
+  }
+
+  updatePageSize(pageNumber: number) {
+    this.thePageSize = pageNumber;
+    this.thePageNumber = 1;
+    this.listProducts();
   }
 
 }
