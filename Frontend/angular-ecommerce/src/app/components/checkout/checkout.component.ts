@@ -10,6 +10,9 @@ export class CheckoutComponent implements OnInit {
 
   checkoutFormGroup: FormGroup;
 
+  totalQuantity: number = 0;
+  totalPrice: number = 0;
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -39,8 +42,8 @@ export class CheckoutComponent implements OnInit {
         nameOnCard: [''],
         cardNumber: [''],
         securityCode: [''],
-        cardexpirationMonth: [''],
-        cardexpirationYear: ['']
+        expirationMonth: [''],
+        expirationYear: ['']
       })
     });
 
