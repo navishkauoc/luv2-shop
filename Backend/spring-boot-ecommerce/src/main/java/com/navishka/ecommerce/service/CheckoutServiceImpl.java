@@ -30,6 +30,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 
         // Generate tracking number
         String orderTrackingNumber = generateOrderTrackingNumber();
+        order.setOrderTrackingNumber(orderTrackingNumber);
 
         // Populate order with orderItems
         Set<OrderItem> orderItems = purchase.getOrderItems();
