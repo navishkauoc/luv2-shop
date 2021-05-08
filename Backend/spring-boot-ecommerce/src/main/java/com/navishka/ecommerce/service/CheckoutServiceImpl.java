@@ -6,11 +6,13 @@ import com.navishka.ecommerce.dto.PurchaseResponse;
 import com.navishka.ecommerce.entity.Customer;
 import com.navishka.ecommerce.entity.Order;
 import com.navishka.ecommerce.entity.OrderItem;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Set;
 import java.util.UUID;
 
+@Service
 public class CheckoutServiceImpl implements CheckoutService {
 
     private CustomerRepository customerRepository;
