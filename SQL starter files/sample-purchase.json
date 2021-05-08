@@ -1,22 +1,22 @@
 {
    "customer":{
-      "firstName":"afasa",
-      "lastName":"afasa",
-      "email":"afasa@test.com"
+      "firstName":"Navishka",
+      "lastName":"Kularathna",
+      "email":"navishka.randika@gmail.com"
    },
    "shippingAddress":{
-      "street":"afasa",
-      "city":"afasa",
+      "street":"Park street",
+      "city":"Toronto",
       "state":"Alberta",
       "country":"Canada",
-      "zipCode":"afasa"
+      "zipCode":"10254"
    },
    "billingAddress":{
-      "street":"fsfsf",
-      "city":"sfdsf",
-      "state":"Acre",
-      "country":"Brazil",
-      "zipCode":"19111"
+      "street":"Park street",
+      "city":"Toronto",
+      "state":"Alberta",
+      "country":"Canada",
+      "zipCode":"10254"
    },
    "order":{
       "totalPrice":36.98,
