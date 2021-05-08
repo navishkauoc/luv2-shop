@@ -46,7 +46,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 
         // Return response
         return new PurchaseResponse(orderTrackingNumber);
-        
+
     }
 
     private String generateOrderTrackingNumber() {
