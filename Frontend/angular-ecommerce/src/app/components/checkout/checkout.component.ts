@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Country } from 'src/app/common/country';
 import { State } from 'src/app/common/state';
 import { CartService } from 'src/app/services/cart.service';
+import { CheckoutService } from 'src/app/services/checkout.service';
 import { Luv2ShopFormService } from 'src/app/services/luv2-shop-form.service';
 import { Luv2ShopValidators } from 'src/app/validators/luv2-shop-validators';
 
@@ -28,7 +30,9 @@ export class CheckoutComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private luv2ShopFormService: Luv2ShopFormService,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private checkoutService: CheckoutService,
+              private router: Router) { }
 
   ngOnInit(): void {
 
@@ -123,10 +127,8 @@ export class CheckoutComponent implements OnInit {
 
     if (this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
+      return;
     }
-
-    console.log(this.checkoutFormGroup.get('customer').value);
-    console.log(this.checkoutFormGroup.get('customer').value.email);
   }
 
   get firstName() { return this.checkoutFormGroup.get('customer.firstName');}
