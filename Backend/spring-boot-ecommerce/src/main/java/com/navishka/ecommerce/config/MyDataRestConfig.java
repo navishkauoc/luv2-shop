@@ -1,9 +1,6 @@
 package com.navishka.ecommerce.config;
 
-import com.navishka.ecommerce.entity.Country;
-import com.navishka.ecommerce.entity.Product;
-import com.navishka.ecommerce.entity.ProductCategory;
-import com.navishka.ecommerce.entity.State;
+import com.navishka.ecommerce.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -40,9 +37,9 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         //Disable Http methods for ProductCategory: PUT, POST and DELETE
         disableHttpMethods(ProductCategory.class, config, theUnsupportedActions);
-
         disableHttpMethods(Country.class, config, theUnsupportedActions);
         disableHttpMethods(State.class, config, theUnsupportedActions);
+        disableHttpMethods(Order.class, config, theUnsupportedActions);
 
         //Call an internal helper method
         exposeIds(config);
